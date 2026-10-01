@@ -1,14 +1,12 @@
-# Meridian Corporate Bank: Profitability & Risk Dashboard
+# Italy Bank: Profitability & Risk Dashboard
 
-*Power BI case study · SQL → Python → Power BI · Corporate Banking · FY2025*
+*Power BI case study · Corporate Banking · FY2025*
 
 ## 1. Business Context
 
-Meridian Corporate Bank lends to corporate clients through four products (Working Capital Revolver, Corporate Term Loan, Trade Finance Loan, Equipment Finance Loan) across eight branches. Management reviews performance every month, but profitability, funding cost, margins, overdue loans and provisions sit in separate views. Leadership has the data, yet not the complete picture.
+Italy Bank lends to corporate clients through four products (Working Capital Revolver, Corporate Term Loan, Trade Finance Loan, Equipment Finance Loan) across eight branches. Management reviews performance every month, but profitability, funding cost, margins, overdue loans and provisions sit in separate views. Leadership has the data, yet not the complete picture.
 
 ## 2. Business Problem
-
-> The data existed. The complete picture was missing.
 
 Management needs one decision-ready view that answers five questions:
 
@@ -37,7 +35,7 @@ Management needs one decision-ready view that answers five questions:
 
 ## 5. Dataset
 
-Source file: `Meridian_Corporate_Bank_2025.xlsx`
+Source file: `Bank_data.xlsx`
 
 | Table | Grain | Size | Content |
 | --- | --- | --- | --- |
@@ -45,10 +43,6 @@ Source file: `Meridian_Corporate_Bank_2025.xlsx`
 | Dim\_Client | Client | 120 | Industry, client segment |
 | Dim\_Product | Product | 4 | Product name |
 | Dim\_Branch | Branch | 8 | Branch name, region |
-
-A `Dim_Date` table is not provided and must be built (with a Last Available DateKey for snapshot logic).
-
-Data quality checks performed before modelling: no duplicate rows on the facility-month grain, no null values, no orphan foreign keys, and principal roll-forward (opening + disbursement − repayment = closing) reconciles.
 
 ## 6. KPI Framework
 
@@ -80,17 +74,12 @@ A calculation group (Normal, MTD, QTD, Rolling 3M) applies one shared period rul
 | Client Summary (drill-through) | Is this client worth keeping, repricing or restricting? |
 | Facility Detail (drill-through) | Which facility is overdue, by how much, and how much limit is left? |
 
-Supporting deliverables: KPI dictionary, data model diagram, SQL validation queries, Python analysis notebook.
-
 ## 8. Approach
 
-1. **Frame the problem:** clarify decisions, KPIs and definitions with stakeholders.
-2. **Extract and validate (SQL):** check grain, duplicates, missing snapshots and control totals.
-3. **Explore and investigate (Python):** profile the data, find anomalies, test root causes before building visuals.
-4. **Model:** star schema with one fact table, three dimensions and a date table.
-5. **Measure (DAX):** Flow, Snapshot and Ratio measures, then the scenario calculation group.
-6. **Visualise and narrate:** one story per page, insight text with a recommended action.
-7. **Validate (UAT):** reconcile every headline KPI to an independent SQL or Python figure.
+1. **Frame the problem:** clarify decisions, KPIs and definitions with stakeholders. 
+2. **Model:** star schema with one fact table, three dimensions and a date table.
+3. **Measure (DAX):** Flow, Snapshot and Ratio measures, then the scenario calculation group.
+4. **Visualise and narrate:** one story per page, insight text with a recommended action.
 
 ## 9. Headline Findings
 
@@ -116,14 +105,11 @@ Supporting deliverables: KPI dictionary, data model diagram, SQL validation quer
 - Average Earning Assets appears to exclude stressed facilities. The exclusion rule should be confirmed.
 - Cost of Funds is nearly identical across products, so product NIM differences reflect pricing, not funding.
 - No budget or target is provided. Benchmark definition: \[prior period / budget / average, to be confirmed\].
-- Currency and unit: \[₹ Cr or bn, to be confirmed\].
 
 ## 12. Repository Structure
 
 ```
 ├── data/                 # source Excel file and data dictionary
-├── sql/                  # validation and extraction queries
-├── notebooks/            # Python EDA and anomaly investigation
 ├── powerbi/              # .pbix file and DAX measure library
 ├── docs/                 # KPI dictionary, data model, screenshots
 └── README.md
@@ -131,8 +117,5 @@ Supporting deliverables: KPI dictionary, data model diagram, SQL validation quer
 
 ## 13. Skills Demonstrated
 
-Problem structuring · SQL data validation · Python EDA · Star schema modelling · DAX (time intelligence, snapshot logic, calculation groups) · Dashboard storytelling for executives · Credit risk and profitability analytics
+Problem structuring · Star schema modelling · DAX (time intelligence, snapshot logic, calculation groups) · Dashboard storytelling for executives · Credit risk and profitability analytics
 
-## 14. Author
-
-&#91;YOUR NAME\] · \[LinkedIn\] · \[Email\]
