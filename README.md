@@ -42,7 +42,6 @@ Source file: `Bank_data.xlsx`
 | Fact\_Banking\_Monthly | Facility × month | 2,880 rows × 23 columns (240 facilities × 12 months) | Principal balances, limits, overdue, DPD, risk grade, interest income and expense, fee income, operating expense, provision, tax |
 | Dim\_Client | Client | 120 | Industry, client segment |
 | Dim\_Product | Product | 4 | Product name |
-| Dim\_Branch | Branch | 8 | Branch name, region |
 
 ## 6. KPI Framework
 
