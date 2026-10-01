@@ -74,6 +74,10 @@ A calculation group (Normal, MTD, QTD, Rolling 3M) applies one shared period rul
 | Client Summary (drill-through) | Is this client worth keeping, repricing or restricting? |
 | Facility Detail (drill-through) | Which facility is overdue, by how much, and how much limit is left? |
 
+<img src="pictures\Executive overview.png" width="400"> <img src="pictures\Margin pressure.png" width="400">
+<img src="pictures\Profitability.png" width="400"> <img src="pictures\Credit risk & exposure.png" width="400">
+<img src="pictures\Risk matrix.png" width="400"> <img src="pictures\Client summary.png" width="400">
+<img src="pictures\Facility detail.png" width="400">
 ## 8. Approach
 
 1. **Frame the problem:** clarify decisions, KPIs and definitions with stakeholders. 
@@ -83,10 +87,7 @@ A calculation group (Normal, MTD, QTD, Rolling 3M) applies one shared period rul
 
 ## 9. Headline Findings
 
-*Update after final validation.*
-
 - NIM averages 5.05% for the year but drops to 4.15% in June when Cost of Funds spikes.
-- In September, a provision of about 76M pushes monthly Net Profit to −7.6M.
 - High-Risk Exposure is 3.73bn (18.0% of Loan Book) while the NPL ratio is only 0.87%, so rating-based risk is far wider than DPD-based NPL.
 - Trade Finance earns the highest NIM (5.61%) while Working Capital Revolver is the largest book.
 - Provision is concentrated in a small number of client groups.
@@ -110,8 +111,9 @@ A calculation group (Normal, MTD, QTD, Rolling 3M) applies one shared period rul
 
 ```
 ├── data/                 # source Excel file and data dictionary
-├── powerbi/              # .pbix file and DAX measure library
-├── docs/                 # KPI dictionary, data model, screenshots
+├── file/              # .pbix file and DAX measure library
+├── pdf/                # file pdf dashboard
+├── pictures/                 # screenshots every page in dashboard
 └── README.md
 ```
 
